@@ -1,0 +1,11 @@
+RELATÓRIO DETALHADO - ANÁLISE ACIDENTES DER
+================================================================================
+
+Data de Geração: 13 de Janeiro de 2026
+Total de Acidentes: 25,696
+Total de Vítimas: 20,898
+Períodos Analisados: 2023 e 2025
+
+Este documento contém análise exploratória completa de 25,696 acidentes,
+consolidados de 3 anos de dados (2023, 2024, 2025), com foco em 2023 e 2025.
+Total de 29 gráficos interativos foram gerados para visualização dos padrões.

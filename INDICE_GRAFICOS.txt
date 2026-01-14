@@ -1,0 +1,203 @@
+ÍNDICE COMPLETO DE GRÁFICOS - ANÁLISE ACIDENTES DER
+================================================================================
+
+TOTAL: 29 Gráficos em 6 Categorias
+
+
+────────────────────────────────────────────────────────────────────────────────
+📊 VISÃO GERAL (5 gráficos)
+────────────────────────────────────────────────────────────────────────────────
+
+  1. Total de Acidentes por Ano
+     Arquivo: 01_total_acidentes_por_ano.html
+     Tipo: Bar Chart
+     Descrição: Comparação visual do total de acidentes entre 2023 e 2025
+     Variáveis: Ano, Quantidade
+
+  2. Vítimas por Tipo de Gravidade
+     Arquivo: 02_vitimas_por_gravidade.html
+     Tipo: Grouped Bar Chart
+     Descrição: Comparação de vítimas leves, graves e fatais entre os anos
+     Variáveis: Gravidade, 2023, 2025
+
+  3. Total de Vítimas por Ano
+     Arquivo: 03_total_vitimas_por_ano.html
+     Tipo: Bar Chart
+     Descrição: Número total de vítimas registradas em cada ano
+     Variáveis: Ano, Total
+
+  4. Top 10 Tipos de Acidentes
+     Arquivo: 04_tipos_acidentes.html
+     Tipo: Horizontal Bar Chart
+     Descrição: Ranking dos principais tipos de acidentes registrados
+     Variáveis: Tipo, Quantidade
+
+  5. Resumo Estatístico Comparativo
+     Arquivo: 29_resumo_estatistico.html
+     Tipo: Grouped Bar Chart
+     Descrição: Estatísticas-chave comparadas entre 2023 e 2025
+     Variáveis: Métrica, 2023, 2025
+
+────────────────────────────────────────────────────────────────────────────────
+📊 ANÁLISE DE VÍTIMAS (5 gráficos)
+────────────────────────────────────────────────────────────────────────────────
+
+  1. Distribuição do Índice de Severidade
+     Arquivo: 10_severidade_acidentes.html
+     Tipo: Box Plot
+     Descrição: Box plot da distribuição de severidade dos acidentes
+     Variáveis: Índice, Ano
+
+  2. Comparação de Vítimas 2023 vs 2025
+     Arquivo: 14_comparacao_vitimas.html
+     Tipo: Grouped Bar Chart
+     Descrição: Comparação lado a lado das categorias de vítimas
+     Variáveis: Leve, Grave, Fatal, Total
+
+  3. Média de Vítimas por Tipo de Acidente
+     Arquivo: 23_media_vitimas_tipo_acidente.html
+     Tipo: Horizontal Bar Chart
+     Descrição: Top 15 tipos de acidentes com maior número médio de vítimas
+     Variáveis: Tipo, Média
+
+  4. Distribuição de Vítimas por Regional
+     Arquivo: 25_boxplot_vitimas_regional.html
+     Tipo: Box Plot
+     Descrição: Box plots comparando distribuição de vítimas por região
+     Variáveis: Regional, Vítimas
+
+  5. Análise de Percentis
+     Arquivo: 27_analise_percentis.html
+     Tipo: Line Chart
+     Descrição: Percentis (10, 25, 50, 75, 90, 95, 99) de vítimas
+     Variáveis: Percentil, Vítimas
+
+────────────────────────────────────────────────────────────────────────────────
+📊 SÉRIES TEMPORAIS (5 gráficos)
+────────────────────────────────────────────────────────────────────────────────
+
+  1. Série Temporal: Acidentes por Mês
+     Arquivo: 08_serie_temporal_acidentes.html
+     Tipo: Line Chart
+     Descrição: Evolução mensal de acidentes ao longo de 2023 e 2025
+     Variáveis: Data, Acidentes, Ano
+
+  2. Série Temporal: Total de Vítimas por Mês
+     Arquivo: 09_serie_temporal_vitimas.html
+     Tipo: Line Chart
+     Descrição: Evolução mensal do total de vítimas
+     Variáveis: Data, Vítimas, Ano
+
+  3. Acidentes por Dia da Semana
+     Arquivo: 16_acidentes_dia_semana.html
+     Tipo: Grouped Bar Chart
+     Descrição: Comparação de frequência de acidentes por dia da semana
+     Variáveis: Dia, 2023, 2025
+
+  4. Análise Sazonal: Acidentes vs Óbitos
+     Arquivo: 22_analise_sazonal.html
+     Tipo: Bar + Line Chart
+     Descrição: Comparação mensal de acidentes e óbitos com duplo eixo Y
+     Variáveis: Mês, Acidentes, Óbitos
+
+  5. Taxa de Variação Mensal
+     Arquivo: 26_tendencia_variacao_mensal.html
+     Tipo: Bar Chart
+     Descrição: Percentual de variação de acidentes 2025 vs 2023
+     Variáveis: Período, Variação %
+
+────────────────────────────────────────────────────────────────────────────────
+📊 ANÁLISE GEOGRÁFICA (6 gráficos)
+────────────────────────────────────────────────────────────────────────────────
+
+  1. Top 15 Rodovias com Mais Acidentes
+     Arquivo: 05_rodovias_mais_acidentes.html
+     Tipo: Horizontal Bar Chart
+     Descrição: Ranking das rodovias com maior volume de acidentes
+     Variáveis: Rodovia, Acidentes
+
+  2. Acidentes por Regional
+     Arquivo: 06_acidentes_por_regional.html
+     Tipo: Grouped Bar Chart
+     Descrição: Distribuição de acidentes entre regionais da DER
+     Variáveis: Regional, 2023, 2025
+
+  3. Distribuição de Acidentes por Quilometragem
+     Arquivo: 12_distribuicao_km.html
+     Tipo: Histogram
+     Descrição: Histograma da distribuição de acidentes ao longo dos km
+     Variáveis: KM, Frequência
+
+  4. Heatmap: Acidentes por Rodovia e Mês
+     Arquivo: 13_heatmap_rodovia_mes.html
+     Tipo: Heatmap
+     Descrição: Mapa de calor mostrando padrões sazonais por rodovia
+     Variáveis: Rodovia, Mês, Acidentes
+
+  5. Densidade por Faixa de Quilometragem
+     Arquivo: 15_densidade_km.html
+     Tipo: Grouped Bar Chart
+     Descrição: Comparação de acidentes em faixas de km de 50 em 50
+     Variáveis: Faixa KM, 2023, 2025
+
+  6. Heatmap Regional
+     Arquivo: 24_heatmap_regional.html
+     Tipo: Heatmap
+     Descrição: Mapa de calor de acidentes e vítimas por regional
+     Variáveis: Regional, Métrica, Valor
+
+────────────────────────────────────────────────────────────────────────────────
+📊 PADRÕES E CORRELAÇÕES (5 gráficos)
+────────────────────────────────────────────────────────────────────────────────
+
+  1. Scatter Plot: KM vs Vítimas
+     Arquivo: 17_scatter_km_vitimas.html
+     Tipo: Scatter Plot
+     Descrição: Relação entre quilometragem e número de vítimas
+     Variáveis: KM, Vítimas, Rodovia
+
+  2. Tipos de Acidentes por Categoria de Gravidade
+     Arquivo: 18_tipos_acidentes_gravidade.html
+     Tipo: Stacked Bar Chart
+     Descrição: Distribuição de gravidade dentro de cada tipo de acidente
+     Variáveis: Tipo, Gravidade, Quantidade
+
+  3. Matriz de Correlação
+     Arquivo: 19_matriz_correlacao.html
+     Tipo: Heatmap
+     Descrição: Correlações estatísticas entre variáveis numéricas
+     Variáveis: Variável1, Variável2, Correlação
+
+  4. Tipos de Ocorrências (Top 12)
+     Arquivo: 07_tipos_ocorrencias.html
+     Tipo: Grouped Bar Chart
+     Descrição: Tipos de ocorrências registradas nos acidentes
+     Variáveis: Ocorrência, 2023, 2025
+
+  5. Matriz: Rodovia x Tipo de Acidente
+     Arquivo: 28_matriz_rodovia_tipo.html
+     Tipo: Heatmap
+     Descrição: Frequência de tipos de acidentes em principais rodovias
+     Variáveis: Rodovia, Tipo, Frequência
+
+────────────────────────────────────────────────────────────────────────────────
+📊 ANÁLISE DE RISCO (3 gráficos)
+────────────────────────────────────────────────────────────────────────────────
+
+  1. Top 20 Rodovias Mais Perigosas
+     Arquivo: 20_top_rodovias_perigosas.html
+     Tipo: Horizontal Bar Chart
+     Descrição: Ranking por índice composto de periculosidade
+     Variáveis: Rodovia, Índice, Vítimas
+
+  2. Taxa de Mortalidade por Rodovia
+     Arquivo: 21_taxa_mortalidade_rodovia.html
+     Tipo: Horizontal Bar Chart
+     Descrição: Percentage de óbitos em relação ao total de acidentes
+     Variáveis: Rodovia, Taxa %, Total
+
+  3. Acidentes por Sentido da Via
+     Arquivo: 11_acidentes_por_sentido.html
+     Tipo: Pie Chart
+     Descrição: Comparação entre crescente e decrescente
+     Variáveis: Sentido, Percentual

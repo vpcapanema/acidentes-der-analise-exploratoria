@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: acidentes-der-analise
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    envVars: []
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600

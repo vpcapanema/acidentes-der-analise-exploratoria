@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análise Exploratória: Acidentes DER 2023-2025</title>
+    <title>Portal - Análise de Acidentes DER 2023-2025</title>
     <style>
         * {
             margin: 0;
@@ -19,44 +19,59 @@
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
         header {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
             text-align: center;
-            color: white;
-            margin-bottom: 40px;
-            padding: 30px;
-            background: rgba(0,0,0,0.3);
-            border-radius: 10px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
         
-        header h1 {
+        .logo {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            color: #1E3A5F;
             font-size: 2.5em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
-        header p {
-            font-size: 1.1em;
-            opacity: 0.9;
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 20px;
         }
         
-        .stats-box {
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #1E3A5F 0%, #2E7D32 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         
         .stat-card {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 12px;
             text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
             transition: transform 0.3s ease;
         }
         
@@ -65,164 +80,215 @@
         }
         
         .stat-value {
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: bold;
             color: #1E3A5F;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         
         .stat-label {
             color: #666;
-            font-size: 0.9em;
-        }
-        
-        .tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .tab-btn {
-            padding: 12px 24px;
-            background: white;
-            border: 2px solid #1E3A5F;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            color: #1E3A5F;
-            transition: all 0.3s ease;
             font-size: 0.95em;
         }
         
-        .tab-btn:hover {
-            background: #2E7D32;
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        .tab-btn.active {
-            background: #1E3A5F;
-            color: white;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .charts-grid {
+        .nav-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
         }
         
-        .chart-container {
+        @media (max-width: 1200px) {
+            .nav-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .nav-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
         }
         
-        .chart-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        .nav-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
         }
         
-        .chart-title {
-            padding: 20px;
+        .nav-header {
             background: linear-gradient(135deg, #1E3A5F 0%, #2E7D32 100%);
             color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .nav-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .nav-title {
+            font-size: 1.4em;
             font-weight: bold;
-            font-size: 1.1em;
         }
         
-        .chart-content {
-            padding: 20px;
-            min-height: 600px;
+        .nav-body {
+            padding: 25px;
         }
         
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
+        .nav-body p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .nav-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .nav-features li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .nav-features li::before {
+            content: "✓ ";
+            color: #2E7D32;
+            font-weight: bold;
+        }
+        
+        .nav-button {
             display: block;
+            background: linear-gradient(135deg, #1E3A5F 0%, #2E7D32 100%);
+            color: white;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .years-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .years-section h2 {
+            color: #1E3A5F;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        
+        .years-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .year-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #eee;
+            transition: all 0.3s ease;
+        }
+        
+        .year-card:hover {
+            border-color: #1E3A5F;
+            background: #f8f9fa;
+        }
+        
+        .year-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #1E3A5F;
+        }
+        
+        .year-stats {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .year-stats span {
+            display: block;
+            margin: 5px 0;
         }
         
         footer {
             text-align: center;
             color: white;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 0.9em;
-            opacity: 0.8;
+            padding: 30px;
+            opacity: 0.9;
         }
         
-        .section-title {
+        footer a {
             color: white;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding: 20px 0;
-            border-bottom: 3px solid white;
+            text-decoration: none;
         }
         
-        .full-width {
-            grid-column: 1 / -1;
+        footer a:hover {
+            text-decoration: underline;
         }
         
         @media (max-width: 768px) {
-            .charts-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            header h1 {
+            h1 {
                 font-size: 1.8em;
             }
             
-            .tabs {
-                flex-direction: column;
+            .nav-grid {
+                grid-template-columns: 1fr;
             }
             
-            .tab-btn {
-                width: 100%;
+            .years-grid {
+                grid-template-columns: 1fr;
             }
-        }
-        
-        .info-box {
-            background: rgba(255,255,255,0.95);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 5px solid #667eea;
-        }
-        
-        .info-box h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        
-        .info-box p {
-            color: #333;
-            line-height: 1.6;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📊 Análise Exploratória: Acidentes DER</h1>
-            <p>Análise Completa 2023 • 2024 • 2025 - Dashboard Interativo</p>
+            <div class="logo">🛣️</div>
+            <h1>Análise de Acidentes DER</h1>
+            <p class="subtitle">Análise Exploratória Completa - Rodovias Estaduais de São Paulo</p>
+            <span class="badge">📊 2023 • 2024 • 2025 - Dados Consolidados</span>
         </header>
         
-        <div class="stats-box">
+        <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-value">39.578</div>
                 <div class="stat-label">Total de Acidentes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">34.324</div>
+                <div class="stat-label">Total de Vítimas</div>
             </div>
             <div class="stat-card">
                 <div class="stat-value">3</div>
@@ -232,312 +298,119 @@
                 <div class="stat-value">29</div>
                 <div class="stat-label">Gráficos Interativos</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value">34.324</div>
-                <div class="stat-label">Vítimas Totais</div>
+        </div>
+        
+        <div class="years-section">
+            <h2>📅 Resumo por Ano</h2>
+            <div class="years-grid">
+                <div class="year-card">
+                    <div class="year-number">2023</div>
+                    <div class="year-stats">
+                        <span><strong>14.389</strong> acidentes</span>
+                        <span><strong>13.076</strong> vítimas</span>
+                        <span><strong>744</strong> óbitos</span>
+                    </div>
+                </div>
+                <div class="year-card">
+                    <div class="year-number">2024</div>
+                    <div class="year-stats">
+                        <span><strong>13.882</strong> acidentes</span>
+                        <span><strong>13.426</strong> vítimas</span>
+                        <span><strong>769</strong> óbitos</span>
+                    </div>
+                </div>
+                <div class="year-card">
+                    <div class="year-number">2025</div>
+                    <div class="year-stats">
+                        <span><strong>11.307</strong> acidentes</span>
+                        <span><strong>7.822</strong> vítimas</span>
+                        <span><strong>552</strong> óbitos</span>
+                    </div>
+                </div>
             </div>
         </div>
         
-        <div class="info-box">
-            <h3>📌 Sobre esta Análise</h3>
-            <p>
-                Esta análise exploratória profunda e densa integra <strong>29 gráficos interativos</strong> criados com Plotly, 
-                permitindo comparações ano a ano dos acidentes registrados pela DER. Os dados foram processados, validados e 
-                transformados em visualizações inteligentes que revelam padrões, tendências e anomalias nos dados de acidentes.
-                Todos os gráficos são totalmente interativos - passe o mouse para ver detalhes, clique para interagir!
-            </p>
-        </div>
-        
-        <div class="tabs">
-            <button class="tab-btn active" onclick="showTab('overview')">📈 Visão Geral</button>
-            <button class="tab-btn" onclick="showTab('vitimas')">👥 Análise de Vítimas</button>
-            <button class="tab-btn" onclick="showTab('temporal')">⏱️ Séries Temporais</button>
-            <button class="tab-btn" onclick="showTab('geografica')">🗺️ Análise Geográfica</button>
-            <button class="tab-btn" onclick="showTab('padroes')">🔍 Padrões & Correlações</button>
-            <button class="tab-btn" onclick="showTab('risco')">⚠️ Análise de Risco</button>
-        </div>
-        
-        <!-- TAB 1: VISÃO GERAL -->
-        <div id="overview" class="tab-content active">
-            <div class="section-title">📊 Visão Geral dos Dados</div>
+        <div class="nav-grid">
+            <a href="dashboard_principal.html" class="nav-card">
+                <div class="nav-header">
+                    <div class="nav-icon">📊</div>
+                    <div class="nav-title">Dashboard Interativo</div>
+                </div>
+                <div class="nav-body">
+                    <p>Explore todos os 29 gráficos interativos organizados em 6 categorias temáticas.</p>
+                    <ul class="nav-features">
+                        <li>Visão geral e estatísticas</li>
+                        <li>Análise de vítimas</li>
+                        <li>Séries temporais</li>
+                        <li>Análise geográfica</li>
+                        <li>Padrões e correlações</li>
+                        <li>Análise de risco</li>
+                    </ul>
+                    <span class="nav-button">Acessar Dashboard →</span>
+                </div>
+            </a>
             
-            <div class="charts-grid">
-                <div class="chart-container">
-                    <div class="chart-title">1️⃣ Total de Acidentes por Ano</div>
-                    <div class="chart-content">
-                        <iframe src="01_total_acidentes_por_ano.html"></iframe>
-                    </div>
+            <a href="dashboard.html" class="nav-card">
+                <div class="nav-header">
+                    <div class="nav-icon">📈</div>
+                    <div class="nav-title">Dashboard Compacto</div>
                 </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">3️⃣ Total de Vítimas por Ano</div>
-                    <div class="chart-content">
-                        <iframe src="03_total_vitimas_por_ano.html"></iframe>
-                    </div>
+                <div class="nav-body">
+                    <p>Versão compacta do dashboard com visualização em grade para análise rápida.</p>
+                    <ul class="nav-features">
+                        <li>Layout em abas</li>
+                        <li>Gráficos lado a lado</li>
+                        <li>Navegação rápida</li>
+                        <li>Ideal para apresentações</li>
+                    </ul>
+                    <span class="nav-button">Acessar Dashboard Compacto →</span>
                 </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">4️⃣ Top 10 Tipos de Acidentes</div>
-                    <div class="chart-content">
-                        <iframe src="04_tipos_acidentes.html"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">11️⃣ Acidentes por Sentido da Via</div>
-                    <div class="chart-content">
-                        <iframe src="11_acidentes_por_sentido.html"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">29️⃣ Resumo Estatístico Comparativo</div>
-                    <div class="chart-content">
-                        <iframe src="29_resumo_estatistico.html"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- TAB 2: ANÁLISE DE VÍTIMAS -->
-        <div id="vitimas" class="tab-content">
-            <div class="section-title">👥 Análise Detalhada de Vítimas</div>
+            </a>
             
-            <div class="charts-grid">
-                <div class="chart-container">
-                    <div class="chart-title">2️⃣ Vítimas por Tipo de Gravidade</div>
-                    <div class="chart-content">
-                        <iframe src="02_vitimas_por_gravidade.html"></iframe>
-                    </div>
+            <a href="RELATORIO_EXECUTIVO.html" class="nav-card">
+                <div class="nav-header">
+                    <div class="nav-icon">📋</div>
+                    <div class="nav-title">Relatório Executivo</div>
                 </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">14️⃣ Comparação de Vítimas 2023 vs 2024 vs 2025</div>
-                    <div class="chart-content">
-                        <iframe src="14_comparacao_vitimas.html"></iframe>
-                    </div>
+                <div class="nav-body">
+                    <p>Relatório completo com análises, insights e recomendações estratégicas.</p>
+                    <ul class="nav-features">
+                        <li>Resumo executivo</li>
+                        <li>Análise comparativa</li>
+                        <li>Principais achados</li>
+                        <li>Recomendações</li>
+                    </ul>
+                    <span class="nav-button">Ver Relatório →</span>
                 </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">23️⃣ Média de Vítimas por Tipo de Acidente</div>
-                    <div class="chart-content">
-                        <iframe src="23_media_vitimas_tipo_acidente.html"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">27️⃣ Análise de Percentis</div>
-                    <div class="chart-content">
-                        <iframe src="27_analise_percentis.html"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">10️⃣ Distribuição do Índice de Severidade</div>
-                    <div class="chart-content">
-                        <iframe src="10_severidade_acidentes.html"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">25️⃣ Distribuição de Vítimas por Regional</div>
-                    <div class="chart-content">
-                        <iframe src="25_boxplot_vitimas_regional.html"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- TAB 3: SÉRIES TEMPORAIS -->
-        <div id="temporal" class="tab-content">
-            <div class="section-title">⏱️ Análise Temporal: Séries e Tendências</div>
+            </a>
             
-            <div class="charts-grid">
-                <div class="chart-container full-width">
-                    <div class="chart-title">8️⃣ Série Temporal: Acidentes por Mês</div>
-                    <div class="chart-content">
-                        <iframe src="08_serie_temporal_acidentes.html" style="min-height: 700px;"></iframe>
-                    </div>
+            <a href="GUIA_ACESSO.html" class="nav-card">
+                <div class="nav-header">
+                    <div class="nav-icon">📚</div>
+                    <div class="nav-title">Guia de Acesso</div>
                 </div>
-                
-                <div class="chart-container full-width">
-                    <div class="chart-title">9️⃣ Série Temporal: Total de Vítimas por Mês</div>
-                    <div class="chart-content">
-                        <iframe src="09_serie_temporal_vitimas.html" style="min-height: 700px;"></iframe>
-                    </div>
+                <div class="nav-body">
+                    <p>Guia completo para navegação e entendimento dos recursos disponíveis.</p>
+                    <ul class="nav-features">
+                        <li>Lista de gráficos</li>
+                        <li>Descrição de cada análise</li>
+                        <li>Links diretos</li>
+                        <li>Documentação</li>
+                    </ul>
+                    <span class="nav-button">Ver Guia →</span>
                 </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">16️⃣ Acidentes por Dia da Semana</div>
-                    <div class="chart-content">
-                        <iframe src="16_acidentes_dia_semana.html"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">22️⃣ Análise Sazonal</div>
-                    <div class="chart-content">
-                        <iframe src="22_analise_sazonal.html" style="min-height: 700px;"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">26️⃣ Taxa de Variação Mensal</div>
-                    <div class="chart-content">
-                        <iframe src="26_tendencia_variacao_mensal.html"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- TAB 4: ANÁLISE GEOGRÁFICA -->
-        <div id="geografica" class="tab-content">
-            <div class="section-title">🗺️ Análise Geográfica: Rodovias e Regionais</div>
-            
-            <div class="charts-grid">
-                <div class="chart-container full-width">
-                    <div class="chart-title">5️⃣ Top 15 Rodovias com Mais Acidentes</div>
-                    <div class="chart-content">
-                        <iframe src="05_rodovias_mais_acidentes.html" style="min-height: 800px;"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container full-width">
-                    <div class="chart-title">6️⃣ Acidentes por Regional</div>
-                    <div class="chart-content">
-                        <iframe src="06_acidentes_por_regional.html"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container full-width">
-                    <div class="chart-title">13️⃣ Heatmap: Acidentes por Rodovia e Mês</div>
-                    <div class="chart-content">
-                        <iframe src="13_heatmap_rodovia_mes.html" style="min-height: 700px;"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container full-width">
-                    <div class="chart-title">24️⃣ Heatmap Regional</div>
-                    <div class="chart-content">
-                        <iframe src="24_heatmap_regional.html"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">12️⃣ Distribuição por Quilometragem</div>
-                    <div class="chart-content">
-                        <iframe src="12_distribuicao_km.html"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">15️⃣ Densidade por Faixa de KM</div>
-                    <div class="chart-content">
-                        <iframe src="15_densidade_km.html"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- TAB 5: PADRÕES E CORRELAÇÕES -->
-        <div id="padroes" class="tab-content">
-            <div class="section-title">🔍 Padrões, Correlações e Relações</div>
-            
-            <div class="charts-grid">
-                <div class="chart-container">
-                    <div class="chart-title">19️⃣ Matriz de Correlação</div>
-                    <div class="chart-content">
-                        <iframe src="19_matriz_correlacao.html"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">17️⃣ Scatter: KM vs Vítimas</div>
-                    <div class="chart-content">
-                        <iframe src="17_scatter_km_vitimas.html" style="min-height: 700px;"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">18️⃣ Tipos de Acidentes por Gravidade</div>
-                    <div class="chart-content">
-                        <iframe src="18_tipos_acidentes_gravidade.html" style="min-height: 700px;"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container full-width">
-                    <div class="chart-title">28️⃣ Matriz: Rodovia x Tipo de Acidente</div>
-                    <div class="chart-content">
-                        <iframe src="28_matriz_rodovia_tipo.html" style="min-height: 700px;"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-title">7️⃣ Tipos de Ocorrências</div>
-                    <div class="chart-content">
-                        <iframe src="07_tipos_ocorrencias.html"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- TAB 6: ANÁLISE DE RISCO -->
-        <div id="risco" class="tab-content">
-            <div class="section-title">⚠️ Análise de Risco e Periculosidade</div>
-            
-            <div class="charts-grid">
-                <div class="chart-container full-width">
-                    <div class="chart-title">2️⃣0️⃣ Top 20 Rodovias Mais Perigosas</div>
-                    <div class="chart-content">
-                        <iframe src="20_top_rodovias_perigosas.html" style="min-height: 800px;"></iframe>
-                    </div>
-                </div>
-                
-                <div class="chart-container full-width">
-                    <div class="chart-title">2️⃣1️⃣ Taxa de Mortalidade por Rodovia</div>
-                    <div class="chart-content">
-                        <iframe src="21_taxa_mortalidade_rodovia.html" style="min-height: 800px;"></iframe>
-                    </div>
-                </div>
-            </div>
+            </a>
         </div>
         
         <footer>
-            <p>📊 Análise Exploratória Completa - 29 Gráficos Interativos | Dados: 2023, 2024 e 2025 | 39.578 Acidentes</p>
-            <p>Todos os gráficos são 100% interativos - passe o mouse, clique para expandir e download disponível em cada gráfico</p>
-            <p><a href="portal.html" style="color: white;">← Voltar ao Portal</a></p>
+            <p>📊 <strong>Análise de Acidentes DER</strong> - Dados 2023, 2024 e 2025</p>
+            <p>Gerado em 14 de Janeiro de 2026 | Sigma-PLI</p>
+            <p style="margin-top: 15px;">
+                <a href="RELATORIO_DETALHADO.txt">📄 Relatório Detalhado (TXT)</a> | 
+                <a href="RESUMO_FINAL.txt">📝 Resumo Final (TXT)</a> | 
+                <a href="dados_completos.csv">📁 Dados Completos (CSV)</a>
+            </p>
         </footer>
     </div>
-    
-    <script>
-        function showTab(tabName) {
-            // Ocultar todos os abas
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
-            
-            // Remover classe ativa de todos os botões
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // Mostrar aba selecionada
-            document.getElementById(tabName).classList.add('active');
-            
-            // Adicionar classe ativa ao botão clicado
-            event.target.classList.add('active');
-            
-            // Scroll para o topo
-            window.scrollTo(0, 0);
-        }
-        
-        // Função para melhorar carregamento de iframes
-        window.addEventListener('load', function() {
-            const iframes = document.querySelectorAll('iframe');
-            iframes.forEach(iframe => {
-                iframe.addEventListener('load', function() {
-                    this.style.opacity = '1';
-                });
-            });
-        });
-    </script>
 </body>
 </html>

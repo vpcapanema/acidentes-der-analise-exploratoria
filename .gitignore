@@ -1,0 +1,18 @@
+# Excluir arquivos e diretórios irrelevantes
+.vscode/
+.ssh/
+.cache/
+.docker/
+.venv/
+node_modules/
+*.log
+*.tmp
+.DS_Store
+*.lock
+*.zip
+*.tar.gz
+*.bak
+*.swp
+*.swo
+*.pyc
+__pycache__/

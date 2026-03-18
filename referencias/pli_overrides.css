@@ -1,0 +1,45 @@
+/* PLI Overrides - adaptações mínimas para o projeto */
+@charset "UTF-8";
+/* Import base PLI tokens (already present) */
+@import url("./style_global_reset_base.css");
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--sigma-page-background) !important;
+  color: var(--pli-navy) !important;
+  font-family: var(--pli-font-primary, "Montserrat", sans-serif) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navbar (componente padrão) */
+.sigma-navbar {
+  background: var(--navbar-bg-solid, #ffffff);
+  color: var(--navbar-text, var(--pli-navy));
+  border-bottom: 1px solid var(--navbar-border, #e0e0e0);
+  height: var(--header-height, 64px);
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+.sigma-navbar__inner { max-width: var(--navbar-max-width, 1600px); margin: 0 auto; width: 100%; display:flex; align-items:center; justify-content:space-between; padding:0 16px; }
+.sigma-navbar__brand img{ height:40px; }
+.sigma-navbar__menu a{ margin:0 12px; color:var(--navbar-text); text-decoration:none; font-weight:600; }
+.sigma-navbar__menu a.active{ color:var(--navbar-accent); }
+.sigma-navbar__actions .sigma-btn{ background:var(--navbar-accent); color:var(--pli-white); border:none; padding:8px 14px; border-radius:8px; cursor:pointer; }
+
+/* Footer */
+.fad-footer{ background:var(--pli-gradient-footer); color:var(--pli-white); padding:18px 0; }
+.fad-footer__inner{ max-width:var(--container-max-width); margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:12px; padding:0 16px; font-size:0.95rem; }
+
+/* Ensure plots and cards keep light backgrounds */
+.plotly-graph-div, .card, .stat-card, .nav-card{ background:var(--pli-white) !important; color:var(--pli-navy) !important; }
+
+/* High contrast helpers */
+.text-pli-deep{ color:var(--pli-deep) !important; }
+.text-pli-green{ color:var(--pli-green-dark) !important; }
+
+/* Responsive adjustment for header spacing */
+main, .container, .vw-page{ padding-top: calc(var(--header-height,64px) + 16px); }

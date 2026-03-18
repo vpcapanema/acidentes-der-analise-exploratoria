@@ -7,31 +7,44 @@ from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
 
-# Função para salvar gráfico com HTML acessível
+# Função para salvar gráfico com HTML completo (navbar + footer PLI)
 def salvar_grafico_acessivel(fig, filename, titulo):
-    """Salva o gráfico com HTML completo e tags de acessibilidade"""
-    # Configurar para ser responsivo
+    """Salva o gráfico com HTML completo, navbar e footer do design system PLI"""
     fig.update_layout(
         autosize=True,
         margin=dict(l=50, r=50, t=80, b=150, autoexpand=True)
     )
     html_content = fig.to_html(include_plotlyjs='cdn', full_html=False, config={'responsive': True})
+    with open('referencias/componente_navbar.html', 'r', encoding='utf-8') as f:
+        navbar = f.read()
+    with open('referencias/componente_footer.html', 'r', encoding='utf-8') as f:
+        footer = f.read()
     html_completo = f'''<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{titulo} - Análise de Acidentes DER</title>
+    <link rel="stylesheet" href="referencias/pli_overrides.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-        html, body {{ width: 100%; height: 100%; overflow: hidden; }}
+        html, body {{
+            margin: 0; padding: 0; box-sizing: border-box;
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            overflow: hidden;
+        }}
+        .chart-wrapper {{ flex: 1; overflow: hidden; display: flex; flex-direction: column; }}
         .plotly-graph-div {{ width: 100% !important; height: 100% !important; }}
         .js-plotly-plot {{ width: 100% !important; height: 100% !important; }}
     </style>
 </head>
-<body>
+<body class="has-sigma-navbar">
+{navbar}
+<main class="chart-wrapper">
 {html_content}
+</main>
+{footer}
 </body>
 </html>'''
     with open(filename, 'w', encoding='utf-8') as f:

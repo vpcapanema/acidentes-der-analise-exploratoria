@@ -6,20 +6,20 @@
     <title>Portal - Análise de Acidentes DER 2023-2025</title>
     <link rel="stylesheet" href="referencias/style_global_reset_base.css">
     <link rel="stylesheet" href="referencias/pli_overrides.css">
-        
+    <style>
         .years-section h2 {
             color: #1E3A5F;
             margin-bottom: 20px;
             text-align: center;
             font-size: 1.5em;
         }
-        
+
         .years-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
-        
+
         .year-card {
             text-align: center;
             padding: 20px;
@@ -27,63 +27,49 @@
             border: 2px solid #eee;
             transition: all 0.3s ease;
         }
-        
+
         .year-card:hover {
             border-color: #1E3A5F;
             background: #f8f9fa;
         }
-        
+
         .year-number {
             font-size: 2em;
             font-weight: bold;
             color: #1E3A5F;
         }
-        
+
         .year-stats {
-                .years-section h2 {
-                    color: #1E3A5F;
-                    margin-bottom: 20px;
-                    text-align: center;
-                    font-size: 1.5em;
-                }
             margin-top: 10px;
             color: #666;
             font-size: 0.9em;
         }
-        
+
         .year-stats span {
             display: block;
             margin: 5px 0;
         }
-        
+
         footer {
             text-align: center;
             color: white;
             padding: 30px;
             opacity: 0.9;
         }
-        
+
         footer a {
             color: white;
             text-decoration: none;
         }
-        
+
         footer a:hover {
             text-decoration: underline;
         }
-        
+
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            .nav-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .years-grid {
-                grid-template-columns: 1fr;
-            }
+            h1 { font-size: 1.8em; }
+            .nav-grid { grid-template-columns: 1fr; }
+            .years-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -113,21 +99,6 @@
                 <div class="stat-value">29</div>
                 <div class="stat-label">Gráficos Interativos</div>
             </div>
-        </head>
-        <body>
-        <header class="sigma-navbar" role="banner">
-            <div class="sigma-navbar__inner">
-                <a href="/" class="sigma-navbar__brand"><img src="/static/img/logo_pli.svg" alt="PLI"></a>
-                <nav class="sigma-navbar__menu">
-                    <a href="/dicionario/index">Dicionário</a>
-                    <a href="/fadstats" class="active">FAD-Stats</a>
-                    <a href="/mapeamento">Mapeamento</a>
-                </nav>
-                <div class="sigma-navbar__actions">
-                    <button class="sigma-btn">Entrar</button>
-                </div>
-            </div>
-        </header>
         </div>
         
         <div class="years-section">

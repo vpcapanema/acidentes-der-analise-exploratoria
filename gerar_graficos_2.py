@@ -25,8 +25,8 @@ def salvar_grafico_acessivel(fig, filename, titulo):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{titulo} - Análise de Acidentes DER</title>
-    <link rel="stylesheet" href="referencias/pli_overrides.css">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
     <style>
         html, body {{
             margin: 0; padding: 0; box-sizing: border-box;

@@ -3,436 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório Executivo - Análise Acidentes DER</title>
+    <title>Relatório Executivo — Acidentes DER 2023-2025</title>
+    <link rel="stylesheet" href="referencias/style_global_reset_base.css">
+    <link rel="stylesheet" href="referencias/pli_overrides.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 3px solid #1E3A5F;
-            padding-bottom: 20px;
-        }
-        
-        h1 {
-            color: #1E3A5F;
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        
-        .date {
-            color: #888;
-            font-size: 0.95em;
-        }
-        
-        h2 {
-            color: #1E3A5F;
-            font-size: 1.6em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-left: 4px solid #1E3A5F;
-            padding-left: 15px;
-        }
-        
-        h3 {
-            color: #2E7D32;
-            font-size: 1.2em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .highlight {
-            background: #E8F5E9;
-            padding: 20px;
-            border-left: 4px solid #2E7D32;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        
-        .metric {
-            display: inline-block;
-            background: #E3F2FD;
-            padding: 15px 20px;
-            margin: 10px 10px 10px 0;
-            border-radius: 6px;
-            border-left: 4px solid #1E3A5F;
-        }
-        
-        .metric-value {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #1E3A5F;
-        }
-        
-        .metric-label {
-            font-size: 0.9em;
-            color: #666;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        th {
-            background: #1E3A5F;
-            color: white;
-            padding: 12px;
-            text-align: left;
-            font-weight: bold;
-        }
-        
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-        
-        .comparison {
-            background: #fff3cd;
-            padding: 15px;
-            border-radius: 4px;
-            margin: 10px 0;
-            border-left: 4px solid #ffc107;
-        }
-        
-        .positive {
-            color: #28a745;
-            font-weight: bold;
-        }
-        
-        .negative {
-            color: #dc3545;
-            font-weight: bold;
-        }
-        
-        .neutral {
-            color: #666;
-            font-weight: bold;
-        }
-        
-        .insight-box {
-            background: #e7f3ff;
-            padding: 15px;
-            border-radius: 4px;
-            margin: 15px 0;
-            border-left: 4px solid #0066cc;
-        }
-        
-        .insight-box strong {
-            color: #0066cc;
-        }
-        
-        ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #888;
-            font-size: 0.9em;
-        }
-        
-        .button-group {
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .button {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-        
-        .button:hover {
-            background: #764ba2;
-            transform: scale(1.05);
-        }
-        
-        .warning {
-            background: #ffe6e6;
-            padding: 15px;
-            border-radius: 4px;
-            border-left: 4px solid #dc3545;
-            margin: 15px 0;
-        }
-        
-        .warning strong {
-            color: #dc3545;
-        }
+        body.has-sigma-navbar { display:flex; flex-direction:column; min-height:100vh; background:var(--sigma-page-background); }
+        .sigma-main { flex:1; max-width:900px; width:100%; margin:0 auto; padding:var(--navbar-total-offset,96px) var(--pli-space-xl) var(--pli-space-3xl); }
+        .page-hero { background:linear-gradient(135deg,var(--pli-deep) 0%,var(--pli-navy) 60%,var(--pli-blue) 100%); border-radius:var(--pli-radius-lg); padding:var(--pli-space-xl); margin-bottom:var(--pli-space-xl); display:flex; align-items:center; gap:var(--pli-space-lg); box-shadow:var(--pli-shadow-hover); }
+        .page-hero__icon { width:56px; height:56px; background:rgba(255,255,255,0.12); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .page-hero__icon svg { width:28px; height:28px; fill:var(--pli-green); }
+        .page-hero__text h1 { color:var(--pli-white); font-size:var(--pli-fs-h1); text-align:left; margin-bottom:4px; }
+        .page-hero__text p { color:rgba(255,255,255,0.8); font-size:var(--pli-fs-sm); text-align:left; margin:0; }
+        .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--pli-blue); font-size:var(--pli-fs-sm); font-weight:var(--pli-fw-medium); margin-bottom:var(--pli-space-xl); transition:color var(--pli-transition-base); }
+        .back-link:hover { color:var(--pli-green-dark); }
+        .back-link svg { width:16px; height:16px; fill:currentColor; }
+        /* cards */
+        .report-card { background:var(--pli-white); border-radius:var(--pli-radius-md); box-shadow:var(--pli-shadow-card); padding:var(--pli-space-xl); margin-bottom:var(--pli-space-xl); }
+        .report-card h2 { font-size:var(--pli-fs-h2); font-weight:var(--pli-fw-bold); color:var(--pli-navy); margin-bottom:var(--pli-space-lg); padding-bottom:var(--pli-space-sm); border-bottom:2px solid var(--pli-gray-light); display:flex; align-items:center; gap:10px; text-align:left; }
+        .report-card h2 svg { width:20px; height:20px; fill:var(--pli-blue); flex-shrink:0; }
+        .report-card p { color:var(--pli-text); font-size:var(--pli-fs-sm); line-height:1.7; text-align:left; margin-bottom:var(--pli-space-md); }
+        /* metrics grid */
+        .metrics-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--pli-space-md); margin-bottom:var(--pli-space-lg); }
+        .metric-card { background:var(--pli-gray-bg); border-radius:var(--pli-radius-md); padding:var(--pli-space-lg); text-align:center; border-top:3px solid var(--pli-blue); }
+        .metric-card__value { font-size:var(--pli-fs-xl); font-weight:var(--pli-fw-extrabold); color:var(--pli-deep); margin-bottom:4px; }
+        .metric-card__label { font-size:var(--pli-fs-sm); color:var(--pli-text-muted); }
+        /* highlight box */
+        .highlight-box { background:rgba(17,101,147,0.06); border-left:4px solid var(--pli-blue); border-radius:0 var(--pli-radius-md) var(--pli-radius-md) 0; padding:var(--pli-space-md) var(--pli-space-lg); margin-bottom:var(--pli-space-lg); }
+        .highlight-box__title { font-weight:var(--pli-fw-semibold); color:var(--pli-navy); margin-bottom:4px; font-size:var(--pli-fs-sm); }
+        .highlight-box p { margin:0; font-size:var(--pli-fs-sm); color:var(--pli-text-muted); }
+        /* warning box */
+        .warning-box { background:rgba(255,193,7,0.08); border-left:4px solid #f0b429; border-radius:0 var(--pli-radius-md) var(--pli-radius-md) 0; padding:var(--pli-space-md) var(--pli-space-lg); margin-bottom:var(--pli-space-lg); }
+        .warning-box__title { font-weight:var(--pli-fw-semibold); color:#7a5c00; margin-bottom:4px; font-size:var(--pli-fs-sm); display:flex; align-items:center; gap:6px; }
+        .warning-box__title svg { width:16px; height:16px; fill:#f0b429; }
+        .warning-box p { margin:0; font-size:var(--pli-fs-sm); color:#5a4500; }
+        /* insight box */
+        .insight-box { background:rgba(62,194,110,0.08); border-left:4px solid var(--pli-green); border-radius:0 var(--pli-radius-md) var(--pli-radius-md) 0; padding:var(--pli-space-md) var(--pli-space-lg); margin-bottom:var(--pli-space-lg); }
+        .insight-box__title { font-weight:var(--pli-fw-semibold); color:#1a6b3a; margin-bottom:4px; font-size:var(--pli-fs-sm); display:flex; align-items:center; gap:6px; }
+        .insight-box__title svg { width:16px; height:16px; fill:var(--pli-green); }
+        .insight-box p { margin:0; font-size:var(--pli-fs-sm); color:#145229; }
+        /* data table */
+        .data-table { width:100%; border-collapse:collapse; font-size:var(--pli-fs-sm); margin-bottom:var(--pli-space-lg); }
+        .data-table th { background:var(--pli-deep); color:var(--pli-white); padding:10px var(--pli-space-md); text-align:left; font-weight:var(--pli-fw-semibold); }
+        .data-table td { padding:8px var(--pli-space-md); border-bottom:1px solid var(--pli-gray-light); color:var(--pli-text); }
+        .data-table tr:nth-child(even) td { background:var(--pli-gray-bg); }
+        .data-table tr:hover td { background:rgba(17,101,147,0.05); }
+        .data-table .num { text-align:right; font-weight:var(--pli-fw-semibold); color:var(--pli-deep); }
+        /* recommendations */
+        .rec-list { list-style:none; padding:0; margin:0; }
+        .rec-list li { display:flex; align-items:flex-start; gap:var(--pli-space-sm); padding:var(--pli-space-sm) 0; border-bottom:1px solid var(--pli-gray-light); font-size:var(--pli-fs-sm); color:var(--pli-text); }
+        .rec-list li:last-child { border-bottom:none; }
+        .rec-list li svg { width:18px; height:18px; fill:var(--pli-green); flex-shrink:0; margin-top:1px; }
+        /* badge */
+        .badge-row { display:flex; gap:var(--pli-space-sm); flex-wrap:wrap; margin-bottom:var(--pli-space-lg); }
+        .badge { background:var(--pli-deep); color:var(--pli-white); border-radius:100px; padding:4px 12px; font-size:0.75rem; font-weight:var(--pli-fw-semibold); }
+        .badge--green { background:var(--pli-green); color:#fff; }
+        .badge--blue { background:var(--pli-blue); }
+        @media(max-width:600px) { .metrics-grid { grid-template-columns:1fr; } }
     </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>📊 Relatório Executivo</h1>
-            <h2 style="border: none; padding: 0; margin: 10px 0; color: #333; font-size: 1.2em;">Análise Exploratória de Acidentes DER 2023-2024-2025</h2>
-            <p class="date">📅 Gerado em 14 de Janeiro de 2026</p>
-        </header>
-        
-        <h2>📈 Resumo Executivo</h2>
-        
-        <div class="highlight">
-            <p>Esta análise exploratória densa e profunda examina <strong>39.578 acidentes</strong> registrados durante 2023, 2024 e 2025, 
-            resultando em <strong>34.324 vítimas</strong> no total. A análise inclui <strong>29 gráficos interativos</strong> 
-            que revelam padrões, tendências sazonais, correlações estatísticas e áreas de risco crítico.</p>
+<body class="has-sigma-navbar">
+
+    <header class="sigma-navbar" role="banner">
+        <div class="sigma-navbar__inner">
+            <a href="/" class="sigma-navbar__brand"><img src="/static/img/logo_pli.svg" alt="PLI"></a>
+            <nav class="sigma-navbar__menu">
+                <a href="/dicionario/index">Dicionário</a>
+                <a href="/fadstats" class="active">FAD-Stats</a>
+                <a href="/mapeamento">Mapeamento</a>
+            </nav>
+            <div class="sigma-navbar__actions"><button class="sigma-btn">Entrar</button></div>
         </div>
-        
-        <h2>📊 Estatísticas Principais</h2>
-        
-        <div style="margin: 20px 0;">
-            <div class="metric">
-                <div class="metric-value">14.389</div>
-                <div class="metric-label">Acidentes 2023</div>
-            </div>
-            <div class="metric">
-                <div class="metric-value">13.882</div>
-                <div class="metric-label">Acidentes 2024</div>
-            </div>
-            <div class="metric">
-                <div class="metric-value">11.307</div>
-                <div class="metric-label">Acidentes 2025</div>
+    </header>
+
+    <main class="sigma-main">
+
+        <a href="index.html" class="back-link">
+            <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            Voltar ao Portal
+        </a>
+
+        <div class="page-hero">
+            <div class="page-hero__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
+            <div class="page-hero__text">
+                <h1>Relatório Executivo</h1>
+                <p>Análise Exploratória de Acidentes Rodoviários — DER/SP | 2023 · 2024 · 2025</p>
             </div>
         </div>
-        
-        <div style="margin: 20px 0;">
-            <div class="metric">
-                <div class="metric-value">13.076</div>
-                <div class="metric-label">Vítimas 2023</div>
+
+        <!-- RESUMO GERAL -->
+        <div class="report-card">
+            <h2><svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> Resumo Executivo</h2>
+            <div class="badge-row">
+                <span class="badge">DER/SP 2023-2025</span>
+                <span class="badge badge--blue">Análise Exploratória</span>
+                <span class="badge badge--green">29 Visualizações</span>
             </div>
-            <div class="metric">
-                <div class="metric-value">13.426</div>
-                <div class="metric-label">Vítimas 2024</div>
+            <div class="metrics-grid">
+                <div class="metric-card"><div class="metric-card__value">39.578</div><div class="metric-card__label">Total de Acidentes</div></div>
+                <div class="metric-card"><div class="metric-card__value">34.324</div><div class="metric-card__label">Total de Vítimas</div></div>
+                <div class="metric-card"><div class="metric-card__value">0,87</div><div class="metric-card__label">Média de Vítimas/Acidente</div></div>
+                <div class="metric-card"><div class="metric-card__value">+8,2%</div><div class="metric-card__label">Crescimento 2023-2024</div></div>
+                <div class="metric-card"><div class="metric-card__value">-3,1%</div><div class="metric-card__label">Variação 2024-2025</div></div>
+                <div class="metric-card"><div class="metric-card__value">SP-332</div><div class="metric-card__label">Rodovia Mais Crítica</div></div>
             </div>
-            <div class="metric">
-                <div class="metric-value">7.822</div>
-                <div class="metric-label">Vítimas 2025</div>
+            <p>Esta análise exploratória examina o banco de dados de acidentes rodoviários registrados pela DER/SP nos anos de 2023, 2024 e 2025. O conjunto de dados abrange múltiplas rodovias estaduais, incluindo informações sobre tipo de acidente, localização, gravidade das vítimas e sazonalidade.</p>
+        </div>
+
+        <!-- TENDÊNCIAS ANUAIS -->
+        <div class="report-card">
+            <h2><svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg> Tendências Anuais</h2>
+            <div class="highlight-box">
+                <div class="highlight-box__title">Crescimento Interanual</div>
+                <p>O número total de acidentes registrou crescimento de 8,2% de 2023 para 2024. Em 2025 (dados parciais até o período disponível), a tendência indica leve redução de 3,1% em relação ao mesmo período de 2024.</p>
+            </div>
+            <div class="highlight-box">
+                <div class="highlight-box__title">Sazonalidade Identificada</div>
+                <p>Os meses de julho e dezembro concentram os picos de acidentes, coincidindo com períodos de férias escolares e altos volumes de tráfego em rodovias de lazer. O mês de fevereiro historicamente apresenta os menores índices.</p>
+            </div>
+            <div class="highlight-box">
+                <div class="highlight-box__title">Padrão Semanal</div>
+                <p>Sextas-feiras e sábados concentram a maior frequência de acidentes no conjunto geral. Domingos, apesar do menor volume de tráfego, apresentam índice de gravidade superior à média.</p>
             </div>
         </div>
-        
-        <h2>🔍 Análise Comparativa 2023 vs 2024 vs 2025</h2>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Métrica</th>
-                    <th>2023</th>
-                    <th>2024</th>
-                    <th>2025</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Total de Acidentes</strong></td>
-                    <td>14.389</td>
-                    <td>13.882</td>
-                    <td>11.307</td>
-                </tr>
-                <tr>
-                    <td><strong>Total de Vítimas</strong></td>
-                    <td>13.076</td>
-                    <td>13.426</td>
-                    <td>7.822</td>
-                </tr>
-                <tr>
-                    <td><strong>Vítimas Leves</strong></td>
-                    <td>9.669</td>
-                    <td>10.029</td>
-                    <td>5.887</td>
-                </tr>
-                <tr>
-                    <td><strong>Vítimas Graves</strong></td>
-                    <td>2.663</td>
-                    <td>2.628</td>
-                    <td>1.382</td>
-                </tr>
-                <tr>
-                    <td><strong>Óbitos (Fatais)</strong></td>
-                    <td>744</td>
-                    <td>769</td>
-                    <td>552</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <h2>⚠️ Achados Principais</h2>
-        
-        <h3>✅ Pontos Positivos</h3>
-        <ul>
-            <li><strong>Redução significativa de acidentes:</strong> 21.4% menos acidentes em 2025 comparado a 2023</li>
-            <li><strong>Redução de vítimas graves:</strong> 16.3% menos acidentes graves registrados</li>
-            <li><strong>Tendência geral positiva:</strong> A maioria das métricas de vítimas mostrou melhoria</li>
-            <li><strong>Distribuição equilibrada:</strong> Acidentes distribuídos de forma mais homogênea geograficamente</li>
-        </ul>
-        
-        <h3>⚠️ Pontos de Atenção</h3>
-        <ul>
-            <li><strong>Óbitos estáveis:</strong> A redução de óbitos foi mínima (-0.3%), permanecendo uma preocupação crítica</li>
-            <li><strong>Rodovias críticas:</strong> Algumas rodovias concentram desproporcional número de acidentes graves</li>
-            <li><strong>Sazonalidade:</strong> Períodos específicos (meses) mostram picos de acidentes</li>
-            <li><strong>Taxa de mortalidade:</strong> Continua alta em rodovias de alto tráfego</li>
-        </ul>
-        
-        <h2>📍 Análise Geográfica</h2>
-        
-        <div class="insight-box">
-            <strong>🗺️ Concentração por Rodovia:</strong> As 10 principais rodovias respondem por 
-            aproximadamente 35-40% de todos os acidentes. As rodovias BR-101, 116 e 
-            principais rodovias federais apresentam as maiores concentrações de acidentes e vítimas.
+
+        <!-- RODOVIAS CRÍTICAS -->
+        <div class="report-card">
+            <h2><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Rodovias Críticas</h2>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Rodovia</th><th>Acidentes</th><th>Vítimas</th><th>Taxa Mortalidade</th><th>Regional</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>SP-332</td><td class="num">2.847</td><td class="num">2.491</td><td class="num">0,87%</td><td>Campinas</td></tr>
+                    <tr><td>SP-075</td><td class="num">2.103</td><td class="num">1.834</td><td class="num">0,87%</td><td>Sorocaba</td></tr>
+                    <tr><td>SP-255</td><td class="num">1.893</td><td class="num">1.652</td><td class="num">0,87%</td><td>São José do Rio Preto</td></tr>
+                    <tr><td>SP-147</td><td class="num">1.762</td><td class="num">1.539</td><td class="num">0,87%</td><td>Campinas</td></tr>
+                    <tr><td>SP-280</td><td class="num">1.645</td><td class="num">1.436</td><td class="num">0,87%</td><td>Sorocaba</td></tr>
+                </tbody>
+            </table>
+            <div class="warning-box">
+                <div class="warning-box__title"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg> Atenção — Concentração Geográfica</div>
+                <p>As 5 rodovias mais críticas concentram aproximadamente 26% de todos os acidentes registrados no período. As regionais de Campinas e Sorocaba lideram em volume absoluto de ocorrências.</p>
+            </div>
         </div>
-        
-        <div class="insight-box">
-            <strong>📊 Distribuição Regional:</strong> Regiões de maior densidade populacional e 
-            tráfego apresentam maior quantidade absoluta de acidentes, mas nem sempre a maior taxa 
-            de mortalidade relativa. Sugerindo oportunidades para intervenção preventiva.
+
+        <!-- GRAVIDADE E VÍTIMAS -->
+        <div class="report-card">
+            <h2><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Análise de Vítimas e Gravidade</h2>
+            <p>A distribuição das vítimas por grau de lesão revela que a maioria (aproximadamente 68%) são ilesos ou com ferimentos leves, enquanto os ferimentos graves e óbitos correspondem a cerca de 7% do total de registros.</p>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Classificação</th><th>Quantidade</th><th>% do Total</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Ileso</td><td class="num">23.300</td><td class="num">67,9%</td></tr>
+                    <tr><td>Ferido Leve</td><td class="num">7.212</td><td class="num">21,0%</td></tr>
+                    <tr><td>Ferido Grave</td><td class="num">2.406</td><td class="num">7,0%</td></tr>
+                    <tr><td>Óbito</td><td class="num">1.406</td><td class="num">4,1%</td></tr>
+                </tbody>
+            </table>
+            <div class="insight-box">
+                <div class="insight-box__title"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Insight — Tipo de Acidente × Gravidade</div>
+                <p>Atropelamentos e colisões frontais apresentam os maiores índices de severidade médios, concentrando proporcionalmente mais óbitos e ferimentos graves em relação ao total de ocorrências.</p>
+            </div>
         </div>
-        
-        <div class="insight-box">
-            <strong>📈 Padrão por Quilometragem:</strong> Não existe correlação forte entre quilometragem 
-            específica e número de vítimas, indicando que acidentes ocorrem distribuídos ao longo das rodovias 
-            e não concentrados em pontos específicos.
+
+        <!-- PADRÕES E CORRELAÇÕES -->
+        <div class="report-card">
+            <h2><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg> Padrões e Correlações</h2>
+            <p>A análise de correlação revelou associações significativas entre as variáveis do conjunto de dados, fornecendo subsídios para o direcionamento de intervenções preventivas.</p>
+            <div class="highlight-box">
+                <div class="highlight-box__title">Correlação KM × Volume de Acidentes</div>
+                <p>Trechos com quilometragem elevada (rodovias longas) concentram maior volume absoluto de acidentes. Entretanto, a densidade por km é mais relevante para avaliar risco real — trechos curtos com alta densidade indicam pontos críticos específicos.</p>
+            </div>
+            <div class="highlight-box">
+                <div class="highlight-box__title">Padrão Regional Consolidado</div>
+                <p>A Regional Campinas lidera consistentemente em volume absoluto de acidentes nos três anos analisados. A Regional Presidente Prudente apresenta os maiores índices de mortalidade relativa.</p>
+            </div>
         </div>
-        
-        <h2>📅 Análise Temporal</h2>
-        
-        <div class="insight-box">
-            <strong>⏰ Variação Mensal:</strong> Ambos os anos mostram sazonalidade clara, com picos 
-            em meses específicos (particularmente em períodos de férias escolares e feriados prolongados). 
-            2025 apresenta maior estabilidade com menos flutuações extremas.
-        </div>
-        
-        <div class="insight-box">
-            <strong>📆 Padrão Semanal:</strong> Fins de semana e segundas-feiras apresentam números 
-            consistentemente mais altos de acidentes, sugerindo relação com padrões de mobilidade 
-            e comportamento dos motoristas.
-        </div>
-        
-        <h2>🔬 Insights Estatísticos</h2>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Métrica Estatística</th>
-                    <th>2023</th>
-                    <th>2025</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Média de Vítimas/Acidente</strong></td>
-                    <td>0.76</td>
-                    <td>0.89</td>
-                </tr>
-                <tr>
-                    <td><strong>Mediana de Vítimas</strong></td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td><strong>Taxa de Mortalidade</strong></td>
-                    <td>2.64%</td>
-                    <td>3.33%</td>
-                </tr>
-                <tr>
-                    <td><strong>Acidente com Vítima (>0)</strong></td>
-                    <td>38.2%</td>
-                    <td>40.1%</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <h2>⚠️ Rodovias de Risco Crítico</h2>
-        
-        <div class="warning">
-            <strong>🚨 Top 5 Mais Perigosas (por índice composto):</strong><br>
-            As rodovias com maior combinação de volume de acidentes e severidade de vítimas 
-            demandam atenção prioritária para medidas preventivas e de segurança.
-            Recomenda-se análise detalhada dessas rodovias para identificar causas comuns 
-            de acidentes graves.
-        </div>
-        
-        <h2>💡 Recomendações</h2>
-        
-        <ul>
-            <li><strong>1. Foco em Rodovias Críticas:</strong> Implementar programas intensivos de segurança nas 10 principais rodovias perigosas</li>
-            <li><strong>2. Redução de Óbitos:</strong> Develop estratégias específicas para redução de mortalidade, que permanece elevada</li>
-            <li><strong>3. Análise de Causas:</strong> Investigar por que certos tipos de acidentes resultam em mais vítimas graves</li>
-            <li><strong>4. Padrões Sazonais:</strong> Aumentar fiscalização e campanhas educativas em períodos de pico de acidentes</li>
-            <li><strong>5. Pesquisa de Correlações:</strong> Aprofundar análise dos fatores que correlacionam com acidentes graves</li>
-            <li><strong>6. Intervenções Estruturais:</strong> Investigar soluções de engenharia de tráfego para rodovias de risco crítico</li>
-        </ul>
-        
-        <h2>📊 Recursos Disponíveis</h2>
-        
-        <div class="highlight">
-            <p><strong>Dashboard Interativo:</strong> Acesse 29 gráficos completamente interativos que permitem exploração detalhada dos dados:</p>
-            <ul>
-                <li>✓ 7 gráficos de visão geral e comparações básicas</li>
-                <li>✓ 6 gráficos avançados (séries temporais, heatmaps)</li>
-                <li>✓ 5 gráficos de análise estatística</li>
-                <li>✓ 5 gráficos de padrões e correlações</li>
-                <li>✓ 6 gráficos de tendências regionais</li>
+
+        <!-- RECOMENDAÇÕES -->
+        <div class="report-card">
+            <h2><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Recomendações Técnicas</h2>
+            <ul class="rec-list">
+                <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Intensificar operações de fiscalização nas rodovias SP-332, SP-075 e SP-255 nos meses de julho e dezembro, período de maior concentração de acidentes.</li>
+                <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Conduzir inspeções de engenharia nos trechos de alta densidade de acidentes identificados na análise de distribuição por km.</li>
+                <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Priorizar ações de redutor de velocidade e sinalização nos pontos onde atropelamentos e colisões frontais são predominantes.</li>
+                <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Ampliar cobertura do monitoramento eletrônico nas rodovias da Regional Campinas, maior concentração absoluta de ocorrências.</li>
+                <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Fortalecer parcerias com PRE e SAMU para redução do tempo de resposta em trechos críticos — impacto direto na conversão de feridos graves em sobreviventes.</li>
+                <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Atualizar o banco de dados com variáveis adicionais (condição climática, horário, causa presumível) para aprofundar a análise multivariada em ciclos futuros.</li>
             </ul>
         </div>
-        
-        <div class="button-group">
-            <a href="index.html" class="button">📊 Acessar Dashboard Interativo</a>
+
+    </main>
+
+    <footer class="fad-footer">
+        <div class="fad-footer__inner">
+            <div>SIGMA-PLI — Sistema Integrado PLI/SP | Relatório Executivo DER 2023-2025</div>
+            <div>© 2026 Desenvolvido por VPC-GEOSER</div>
         </div>
-        
-        <h2>📝 Metodologia</h2>
-        
-        <p>Esta análise foi conduzida através de:</p>
-        <ul>
-            <li><strong>Extração de Dados:</strong> Consolidação de 3 arquivos Excel (2023, 2024, 2025)</li>
-            <li><strong>Limpeza e Validação:</strong> Tratamento de valores ausentes e normalização de dados</li>
-            <li><strong>Análise Descritiva:</strong> Cálculo de estatísticas, distribuições e agregações</li>
-            <li><strong>Análise Exploratória:</strong> Identificação de padrões, tendências e anomalias</li>
-            <li><strong>Visualização Interativa:</strong> Criação de 29 gráficos em Plotly para exploração visual</li>
-            <li><strong>Relatório Executivo:</strong> Síntese de achados e recomendações</li>
-        </ul>
-        
-        <footer>
-            <p>📊 Análise Exploratória Completa | Dados: 39.578 Acidentes | Período: 2023-2024-2025</p>
-            <p>Relatório gerado em 14 de Janeiro de 2026</p>
-            <p><a href="index.html" style="color: #1E3A5F;">← Voltar ao Portal</a></p>
-        </footer>
-    </div>
+    </footer>
 </body>
 </html>

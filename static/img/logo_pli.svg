@@ -1,0 +1,17 @@
+<svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .logo-text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.5px; }
+      .logo-accent { fill: #1165B3; }
+      .logo-dark { fill: #114359; }
+    </style>
+  </defs>
+  
+  <!-- Icon: Road/Highway symbol -->
+  <rect class="logo-accent" x="6" y="14" width="3" height="12" rx="1.5"/>
+  <rect class="logo-dark" x="12" y="10" width="3" height="16" rx="1.5"/>
+  <rect class="logo-accent" x="18" y="12" width="3" height="14" rx="1.5"/>
+  
+  <!-- Text: PLI -->
+  <text class="logo-text logo-dark" x="28" y="28">PLI</text>
+</svg>

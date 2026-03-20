@@ -3,441 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Acesso - Análise Acidentes DER</title>
+    <title>Guia de Acesso — Acidentes DER 2023-2025</title>
+    <link rel="stylesheet" href="referencias/style_global_reset_base.css">
+    <link rel="stylesheet" href="referencias/pli_overrides.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1E3A5F 0%, #2E7D32 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        header {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        h1 {
-            color: #1E3A5F;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            color: #666;
-            font-size: 1.1em;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        
-        .card-header {
-            background: linear-gradient(135deg, #1E3A5F 0%, #2E7D32 100%);
-            color: white;
-            padding: 20px;
-            font-size: 1.3em;
-            font-weight: bold;
-        }
-        
-        .card-content {
-            padding: 20px;
-        }
-        
-        .card-content p {
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        
-        .button {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            font-size: 1em;
-        }
-        
-        .button:hover {
-            background: #764ba2;
-            transform: scale(1.05);
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
-        }
-        
-        .stat {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 5px;
-        }
-        
-        .stat-label {
-            color: #666;
-            font-size: 0.95em;
-        }
-        
-        .features {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .features h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-        
-        .feature-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .feature-item {
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .feature-item h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        
-        .feature-item p {
-            color: #666;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-        
-        footer {
-            text-align: center;
-            color: white;
-            padding: 20px;
-            margin-top: 40px;
-            opacity: 0.9;
-        }
-        
-        .highlight {
-            background: #fffacd;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 4px solid #ffc107;
-        }
-        
-        .highlight strong {
-            color: #ff8c00;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        body.has-sigma-navbar { display:flex; flex-direction:column; min-height:100vh; background:var(--sigma-page-background); }
+        .sigma-main { flex:1; max-width:1200px; width:100%; margin:0 auto; padding:var(--navbar-total-offset,96px) var(--pli-space-xl) var(--pli-space-3xl); }
+        .page-hero { background:linear-gradient(135deg,var(--pli-deep) 0%,var(--pli-navy) 60%,var(--pli-blue) 100%); border-radius:var(--pli-radius-lg); padding:var(--pli-space-xl); margin-bottom:var(--pli-space-xl); display:flex; align-items:center; gap:var(--pli-space-lg); box-shadow:var(--pli-shadow-hover); }
+        .page-hero__icon { width:56px; height:56px; background:rgba(255,255,255,0.12); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .page-hero__icon svg { width:28px; height:28px; fill:var(--pli-green); }
+        .page-hero__text h1 { color:var(--pli-white); font-size:var(--pli-fs-h1); text-align:left; margin-bottom:4px; }
+        .page-hero__text p { color:rgba(255,255,255,0.8); font-size:var(--pli-fs-sm); text-align:left; margin:0; }
+        .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--pli-blue); font-size:var(--pli-fs-sm); font-weight:var(--pli-fw-medium); margin-bottom:var(--pli-space-xl); transition:color var(--pli-transition-base); }
+        .back-link:hover { color:var(--pli-green-dark); }
+        .back-link svg { width:16px; height:16px; fill:currentColor; }
+        .intro-card { background:var(--pli-white); border-radius:var(--pli-radius-md); box-shadow:var(--pli-shadow-card); padding:var(--pli-space-lg); margin-bottom:var(--pli-space-xl); border-left:4px solid var(--pli-blue); }
+        .intro-card p { margin:0; font-size:var(--pli-fs-sm); color:var(--pli-text-muted); text-align:left; line-height:1.7; }
+        .steps-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--pli-space-lg); margin-bottom:var(--pli-space-xl); }
+        .step-card { background:var(--pli-white); border-radius:var(--pli-radius-md); box-shadow:var(--pli-shadow-card); overflow:hidden; transition:transform var(--pli-transition-base), box-shadow var(--pli-transition-base); }
+        .step-card:hover { transform:translateY(-3px); box-shadow:var(--pli-shadow-hover); }
+        .step-card__header { background:linear-gradient(135deg,var(--pli-deep) 0%,var(--pli-navy) 100%); color:var(--pli-white); padding:14px var(--pli-space-lg); font-size:var(--pli-fs-sm); font-weight:var(--pli-fw-semibold); display:flex; align-items:center; gap:8px; }
+        .step-card__header svg { width:16px; height:16px; fill:var(--pli-green); }
+        .step-card__body { padding:var(--pli-space-lg); }
+        .step-card__body p { margin:0 0 var(--pli-space-md) 0; font-size:var(--pli-fs-sm); color:var(--pli-text); text-align:left; line-height:1.7; }
+        .step-card__list { list-style:none; padding:0; margin:0; }
+        .step-card__list li { display:flex; align-items:flex-start; gap:8px; padding:6px 0; font-size:var(--pli-fs-sm); color:var(--pli-text-muted); }
+        .step-card__list li svg { width:16px; height:16px; fill:var(--pli-green); flex-shrink:0; margin-top:1px; }
+        .links-card { background:var(--pli-white); border-radius:var(--pli-radius-md); box-shadow:var(--pli-shadow-card); padding:var(--pli-space-lg); }
+        .links-card h2 { font-size:var(--pli-fs-h2); font-weight:var(--pli-fw-bold); color:var(--pli-navy); margin-bottom:var(--pli-space-md); display:flex; align-items:center; gap:10px; text-align:left; }
+        .links-card h2 svg { width:20px; height:20px; fill:var(--pli-blue); }
+        .quick-links { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--pli-space-md); }
+        .quick-link { display:flex; align-items:center; gap:8px; padding:12px var(--pli-space-md); border:1px solid var(--pli-gray-light); border-radius:var(--pli-radius-md); color:var(--pli-blue); font-size:var(--pli-fs-sm); font-weight:var(--pli-fw-medium); transition:all var(--pli-transition-base); }
+        .quick-link svg { width:16px; height:16px; fill:currentColor; }
+        .quick-link:hover { border-color:var(--pli-blue); background:rgba(17,101,147,0.06); color:var(--pli-green-dark); }
+        @media(max-width:900px){ .steps-grid{grid-template-columns:1fr;} .quick-links{grid-template-columns:1fr;} }
     </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>📊 Análise Exploratória Completa</h1>
-            <p class="subtitle">Acidentes DER 2023-2025 | 29 Gráficos Interativos</p>
-        </header>
-        
-        <div class="highlight">
-            <strong>✅ Análise Concluída com Sucesso!</strong> 
-            Todos os 29 gráficos interativos foram gerados com sucesso. 
-            Abaixo você encontra as informações para acessar cada recurso.
+<body class="has-sigma-navbar">
+
+    <header class="sigma-navbar" role="banner">
+        <div class="sigma-navbar__inner">
+            <a href="/" class="sigma-navbar__brand"><img src="/static/img/logo_pli.svg" alt="PLI"></a>
+            <nav class="sigma-navbar__menu">
+                <a href="/dicionario/index">Dicionário</a>
+                <a href="/fadstats" class="active">FAD-Stats</a>
+                <a href="/mapeamento">Mapeamento</a>
+            </nav>
+            <div class="sigma-navbar__actions"><button class="sigma-btn">Entrar</button></div>
         </div>
-        
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number">39.578</div>
-                <div class="stat-label">Acidentes Analisados</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">34.324</div>
-                <div class="stat-label">Vítimas Totais</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">29</div>
-                <div class="stat-label">Gráficos Gerados</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Anos Analisados</div>
+    </header>
+
+    <main class="sigma-main">
+
+        <a href="index.html" class="back-link">
+            <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            Voltar ao Portal
+        </a>
+
+        <div class="page-hero">
+            <div class="page-hero__icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 10.3L4.04 9 12 4.7 19.96 9 12 13.3zM7 12.5v4.5c0 1.66 2.24 3 5 3s5-1.34 5-3v-4.5l-5 2.73-5-2.73z"/></svg></div>
+            <div class="page-hero__text">
+                <h1>Guia de Acesso e Navegação</h1>
+                <p>Como utilizar os dashboards e relatórios da análise exploratória de acidentes DER</p>
             </div>
         </div>
-        
-        <div class="grid">
-            <div class="card">
-                <div class="card-header">📊 Dashboard Interativo</div>
-                <div class="card-content">
-                    <p>Acesse todos os 29 gráficos interativos organizados em 6 abas temáticas:</p>
-                    <ul style="margin-left: 20px; color: #666;">
-                        <li>Visão Geral (5 gráficos)</li>
-                        <li>Análise de Vítimas (6 gráficos)</li>
-                        <li>Séries Temporais (5 gráficos)</li>
-                        <li>Análise Geográfica (6 gráficos)</li>
-                        <li>Padrões & Correlações (5 gráficos)</li>
-                        <li>Análise de Risco (2 gráficos)</li>
+
+        <div class="intro-card">
+            <p>Este guia apresenta uma navegação rápida pelos principais recursos da análise exploratória. Utilize o portal para acessar dashboards interativos, relatório executivo e demais visualizações detalhadas. Todos os módulos estão alinhados ao design system SIGMA-PLI.</p>
+        </div>
+
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-card__header"><svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> 1) Acesse o Dashboard Principal</div>
+                <div class="step-card__body">
+                    <p>O Dashboard Principal organiza os 29 gráficos por tema, permitindo análises por aba e leitura em profundidade.</p>
+                    <ul class="step-card__list">
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Utilize as abas temáticas para filtrar o foco analítico.</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Passe o mouse nos gráficos para detalhes adicionais.</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Compare anos e categorias com leitura visual rápida.</li>
                     </ul>
-                    <a href="index.html" class="button" style="margin-top: 15px;">
-                        Acessar Dashboard →
-                    </a>
                 </div>
             </div>
-            
-            <div class="card">
-                <div class="card-header">📋 Relatório Executivo</div>
-                <div class="card-content">
-                    <p>Relatório executivo completo com:</p>
-                    <ul style="margin-left: 20px; color: #666;">
-                        <li>Resumo de dados</li>
-                        <li>Análises comparativas</li>
-                        <li>Achados principais</li>
-                        <li>Rodovias críticas</li>
-                        <li>Recomendações estratégicas</li>
+
+            <div class="step-card">
+                <div class="step-card__header"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg> 2) Consulte o Relatório Executivo</div>
+                <div class="step-card__body">
+                    <p>O relatório consolida os achados principais, com indicadores, padrões críticos e recomendações técnicas.</p>
+                    <ul class="step-card__list">
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Visualize métricas consolidadas 2023-2025.</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Identifique rodovias e regionais de maior criticidade.</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Apoie decisões com recomendações práticas.</li>
                     </ul>
-                    <a href="RELATORIO_EXECUTIVO.html" class="button" style="margin-top: 15px;">
-                        Ver Relatório →
-                    </a>
                 </div>
             </div>
-            
-            <div class="card">
-                <div class="card-header">📄 Relatório Detalhado</div>
-                <div class="card-content">
-                    <p>Análise profunda em formato de texto com:</p>
-                    <ul style="margin-left: 20px; color: #666;">
-                        <li>Seções estruturadas</li>
-                        <li>Estatísticas detalhadas</li>
-                        <li>Ranking de rodovias</li>
-                        <li>Análises temporais</li>
-                        <li>Correlações estatísticas</li>
+
+            <div class="step-card">
+                <div class="step-card__header"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg> 3) Explore Séries Temporais</div>
+                <div class="step-card__body">
+                    <p>As séries temporais permitem acompanhar variações mensais, sazonalidade e tendências ao longo do período.</p>
+                    <ul class="step-card__list">
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Compare comportamento entre anos.</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Detecte picos sazonais em meses críticos.</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Avalie evolução de vítimas e acidentes.</li>
                     </ul>
-                    <a href="RELATORIO_DETALHADO.txt" class="button" style="margin-top: 15px;">
-                        Baixar Relatório →
-                    </a>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-card__header"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg> 4) Priorize Trechos de Risco</div>
+                <div class="step-card__body">
+                    <p>Os gráficos de risco destacam rodovias com maior periculosidade e taxa de mortalidade, apoiando priorização operacional.</p>
+                    <ul class="step-card__list">
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Consulte ranking de rodovias mais perigosas.</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Analise taxas de mortalidade por eixo rodoviário.</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Direcione ações de fiscalização e engenharia.</li>
+                    </ul>
                 </div>
             </div>
         </div>
-        
-        <div class="features">
-            <h2>🎯 Destaques da Análise</h2>
-            <div class="feature-list">
-                <div class="feature-item">
-                    <h3>📉 Evolução dos Acidentes</h3>
-                    <p>Análise trienal: <strong>14.389</strong> (2023) → <strong>13.882</strong> (2024) → <strong>11.307</strong> (2025).
-                    Redução de <strong>21.4%</strong> entre 2023 e 2025.</p>
-                </div>
-                
-                <div class="feature-item">
-                    <h3>🛣️ Rodovias Críticas</h3>
-                    <p>As 10 principais rodovias (55, 270, 425, etc.) concentram 
-                    <strong>40% de todos os acidentes</strong> e requerem atenção prioritária.</p>
-                </div>
-                
-                <div class="feature-item">
-                    <h3>📅 Sazonalidade</h3>
-                    <p>Picos pronunciados em <strong>Janeiro, Junho, Julho e Agosto</strong>. 
-                    Redução significativa em períodos de inverno.</p>
-                </div>
-                
-                <div class="feature-item">
-                    <h3>👥 Severidade</h3>
-                    <p><strong>2.065 óbitos totais</strong> entre 2023-2025. 
-                    744 (2023), 769 (2024), 552 (2025).</p>
-                </div>
-                
-                <div class="feature-item">
-                    <h3>🔗 Correlações</h3>
-                    <p>Forte correlação entre vítimas leves e total (+0.843), 
-                    correlação moderada com vítimas graves (+0.457).</p>
-                </div>
-                
-                <div class="feature-item">
-                    <h3>📊 Qualidade de Dados</h3>
-                    <p>Dados limpos e completos. <strong>Sem valores faltantes</strong> 
-                    nas colunas principais de análise.</p>
-                </div>
+
+        <div class="links-card">
+            <h2><svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg> Links Rápidos</h2>
+            <div class="quick-links">
+                <a class="quick-link" href="dashboard_principal.html"><svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> Dashboard Principal</a>
+                <a class="quick-link" href="dashboard.html"><svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg> Dashboard Compacto</a>
+                <a class="quick-link" href="RELATORIO_EXECUTIVO.html"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6z"/></svg> Relatório Executivo</a>
             </div>
         </div>
-        
-        <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 30px;">
-            <h2 style="color: #667eea; margin-bottom: 20px;">📁 Arquivos Gerados</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                <div style="padding: 15px; background: #f9f9f9; border-radius: 8px;">
-                    <strong>📊 Gráficos HTML (29 arquivos)</strong>
-                    <p style="color: #666; margin-top: 10px; font-size: 0.9em;">
-                        01_total_acidentes_por_ano.html até<br>
-                        29_resumo_estatistico.html
-                    </p>
-                </div>
-                
-                <div style="padding: 15px; background: #f9f9f9; border-radius: 8px;">
-                    <strong>📄 Relatórios (3 arquivos)</strong>
-                    <p style="color: #666; margin-top: 10px; font-size: 0.9em;">
-                        index.html<br>
-                        RELATORIO_EXECUTIVO.html<br>
-                        RELATORIO_DETALHADO.txt
-                    </p>
-                </div>
-                
-                <div style="padding: 15px; background: #f9f9f9; border-radius: 8px;">
-                    <strong>🔧 Scripts (5 arquivos)</strong>
-                    <p style="color: #666; margin-top: 10px; font-size: 0.9em;">
-                        analise_exploratoria.py<br>
-                        gerar_graficos_1.py até<br>
-                        gerar_relatorio_detalhado.py
-                    </p>
-                </div>
-                
-                <div style="padding: 15px; background: #f9f9f9; border-radius: 8px;">
-                    <strong>📊 Dados (2 arquivos)</strong>
-                    <p style="color: #666; margin-top: 10px; font-size: 0.9em;">
-                        dados_completos.csv<br>
-                        GUIA_ACESSO.html (este arquivo)
-                    </p>
-                </div>
-            </div>
+
+    </main>
+
+    <footer class="fad-footer">
+        <div class="fad-footer__inner">
+            <div>SIGMA-PLI — Sistema Integrado PLI/SP | Guia de Acesso</div>
+            <div>© 2026 Desenvolvido por VPC-GEOSER</div>
         </div>
-        
-        <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 30px;">
-            <h2 style="color: #667eea; margin-bottom: 20px;">🚀 Como Usar</h2>
-            
-            <div style="background: #f0f4ff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                <h3 style="color: #667eea; margin-bottom: 15px;">Opção 1: Dashboard Interativo (Recomendado)</h3>
-                <ol style="color: #666; line-height: 1.8;">
-                    <li>Clique em "Acessar Dashboard" acima</li>
-                    <li>Explore os 6 abas temáticas</li>
-                    <li>Passe o mouse nos gráficos para ver detalhes</li>
-                    <li>Clique em legendas para mostrar/ocultar séries</li>
-                    <li>Use ícones no canto superior para download (📷, 📥, etc.)</li>
-                </ol>
-            </div>
-            
-            <div style="background: #fffacd; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                <h3 style="color: #ff8c00; margin-bottom: 15px;">Opção 2: Relatório Executivo</h3>
-                <ol style="color: #666; line-height: 1.8;">
-                    <li>Clique em "Ver Relatório" para HTML formatado</li>
-                    <li>Leia o resumo executivo com gráficos estáticos</li>
-                    <li>Acesse recomendações estratégicas</li>
-                    <li>Ideal para executivos e tomadores de decisão</li>
-                </ol>
-            </div>
-            
-            <div style="background: #e8f5e9; padding: 20px; border-radius: 8px;">
-                <h3 style="color: #28a745; margin-bottom: 15px;">Opção 3: Relatório Detalhado</h3>
-                <ol style="color: #666; line-height: 1.8;">
-                    <li>Baixe o arquivo RELATORIO_DETALHADO.txt</li>
-                    <li>Abra em qualquer editor de texto</li>
-                    <li>11 seções estruturadas com análises profundas</li>
-                    <li>Ideal para análise técnica detalhada</li>
-                </ol>
-            </div>
-        </div>
-        
-        <div style="background: #fff3cd; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-            <h3 style="color: #ff8c00; margin-bottom: 10px;">💡 Dica Importante</h3>
-            <p style="color: #666; margin: 10px 0;">
-                Para melhor experiência, <strong>use navegador web moderno</strong> (Chrome, Firefox, Edge) 
-                para acessar os gráficos interativos. Os gráficos Plotly funcionam perfeitamente em navegadores modernos 
-                com suporte a JavaScript e WebGL.
-            </p>
-        </div>
-        
-        <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 30px;">
-            <h2 style="color: #667eea; margin-bottom: 20px;">🎓 Sobre os Gráficos</h2>
-            
-            <div style="columns: 2; gap: 20px; color: #666;">
-                <p style="margin-bottom: 15px;">
-                    <strong>Plotly Interativo:</strong> Todos os 29 gráficos foram criados com Plotly, 
-                    a biblioteca de visualização mais avançada para web. Cada gráfico é totalmente interativo.
-                </p>
-                
-                <p style="margin-bottom: 15px;">
-                    <strong>Funcionalidades:</strong> Passe o mouse para ver valores exatos, clique para expandir/colapsar séries, 
-                    use a caixa de zoom para aumentar regiões específicas.
-                </p>
-                
-                <p style="margin-bottom: 15px;">
-                    <strong>Download:</strong> Clique no ícone 📷 no canto superior para capturar como imagem PNG, 
-                    ou 📥 para fazer download dos dados em CSV.
-                </p>
-                
-                <p>
-                    <strong>Tipos:</strong> A análise inclui gráficos de barras, linhas, scatter, box plots, 
-                    heatmaps, gráficos de pizza e muito mais.
-                </p>
-            </div>
-        </div>
-        
-        <footer>
-            <p>✅ Análise Exploratória Completa | 39.578 Acidentes | 34.324 Vítimas | 29 Gráficos Interativos</p>
-            <p>📅 Dados: 2023, 2024, 2025 | <a href="index.html" style="color: white;">← Voltar ao Portal</a></p>
-        </footer>
-    </div>
+    </footer>
 </body>
 </html>

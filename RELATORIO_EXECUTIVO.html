@@ -63,17 +63,20 @@
 </head>
 <body class="has-sigma-navbar">
 
-    <header class="sigma-navbar" role="banner">
-        <div class="sigma-navbar__inner">
-            <a href="/" class="sigma-navbar__brand"><img src="/static/img/logo_pli.svg" alt="PLI"></a>
-            <nav class="sigma-navbar__menu">
-                <a href="/dicionario/index">Dicionário</a>
-                <a href="/fadstats" class="active">FAD-Stats</a>
-                <a href="/mapeamento">Mapeamento</a>
-            </nav>
-            <div class="sigma-navbar__actions"><button class="sigma-btn">Entrar</button></div>
-        </div>
-    </header>
+    <div id="sigma-navbar-placeholder"></div>
+    <script>
+        fetch('referencias/componente_navbar_public.html')
+            .then(function(r) { return r.text(); })
+            .then(function(html) {
+                var tmp = document.createElement('div');
+                tmp.innerHTML = html;
+                var navbar = tmp.querySelector('.sigma-header');
+                if (navbar) {
+                    var ph = document.getElementById('sigma-navbar-placeholder');
+                    if (ph) ph.replaceWith(navbar);
+                }
+            });
+    </script>
 
     <main class="sigma-main">
 
